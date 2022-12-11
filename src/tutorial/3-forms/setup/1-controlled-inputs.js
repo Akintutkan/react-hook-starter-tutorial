@@ -13,10 +13,13 @@ const ControlledInputs = () => {
     e.preventDefault()
     if(name && email){
       console.log("formu gönder")
-      const person = {name,email}
+      const person = {id: new Date().getTime().toString(),name,email}
+      console.log(person)
       setPeople((people)=>{
         return [...people,person]
       })
+      setName("")
+      setEmail("")
       console.log(person);
     }else{
       console.log("boş değerler")
@@ -37,6 +40,14 @@ const ControlledInputs = () => {
       </div>
       <button type="submit">Kişi Ekle</button>
     </form>
+    {people.map((person)=> {
+      const {id,name,email} = person
+      return (<div className="item" key={id}>
+        <h4>{name}</h4>
+        <p>{email}</p>
+      </div>
+    )
+    })}
   </article>
   </>
 )};
