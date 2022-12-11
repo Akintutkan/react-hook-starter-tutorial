@@ -3,6 +3,7 @@ import { data } from '../../../data'
 // more components
 // fix - context api, redux (for more complex cases)
 const PersonContext = React.createContext()
+//iki bileşen -provider,consumer
 const ContextAPI = () => {
   const [people, setPeople] = useState(data)
   const kaldırılmışKişi = (id) => {
@@ -11,30 +12,30 @@ const ContextAPI = () => {
     })
   }
   return (
-    <section>
-      <h3>prop drilling</h3>
-      <List people={people} kaldırılmışKişi={kaldırılmışKişi} />
-    </section>
+    <PersonContext.Provider value={{kaldırılmışKişi, people}}>
+      <h3>Context Api /useContext</h3>
+      <List />
+    </PersonContext.Provider>
   )
 }
-
-const List = ({ people, kaldırılmışKişi }) => {
+const List = ({ people}) => {
+  const anaVeri = useContext(PersonContext)
+  console.log(anaVeri)
   return (
     <>
-      {people.map((person) => {
+      {anaVeri.people.map((person) => {
         return (
           <SinglePerson
-            key={person.id}
-            {...person}
-            kaldırılmışKişi={kaldırılmışKişi}
-          />
+            key={person.id} {...person}/>
         )
       })}
     </>
   )
 }
 
-const SinglePerson = ({ id, name, kaldırılmışKişi }) => {
+const SinglePerson = ({ id, name,}) => {
+const {kaldırılmışKişi} = useContext(PersonContext)
+  //console.log(data)
   return (
     <div className='item'>
       <h4>{name}</h4>
