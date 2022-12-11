@@ -13,7 +13,7 @@ const PropDrilling = () => {
   }
   return (<section>
     <h3>Prop Drilling</h3>
-    <List People={people} kaldırılmış={kaldırılmışKişi} />
+    <List people={people} kaldırılmış={kaldırılmışKişi} />
   </section>
 )};
 const List = ({people,kaldırılmışKişi}) =>{
