@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { data } from '../../../data'
 // more components
 // fix - context api, redux (for more complex cases)
-
+const PersonContext = React.createContext()
 const ContextAPI = () => {
   const [people, setPeople] = useState(data)
   const kaldırılmışKişi = (id) => {
