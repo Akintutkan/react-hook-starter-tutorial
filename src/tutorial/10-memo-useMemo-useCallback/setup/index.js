@@ -21,6 +21,9 @@ const Index = () => {
 }
 
 const BigList = ({ products }) => {
+  useEffect(()=>{
+    console.log("Büyük liste çağrıldı")
+  })
   return (
     <section className='products'>
       {products.map((product) => {
@@ -31,6 +34,9 @@ const BigList = ({ products }) => {
 }
 
 const SingleProduct = ({ fields }) => {
+  useEffect(()=>{
+    console.log("tek liste çağrıldı")
+  })
   let { name, price } = fields
   price = price / 100
   const image = fields.image[0].url
