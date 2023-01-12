@@ -8,6 +8,10 @@ const UseStateArray = () => {
     //remove yerine handle ederdi
   setPeople(newPeople)  // sonra bunu set people ile çağır bu remove item fonksiyonunun aşağıda çağırdık
   }
+  // setPeople((oldPeople)=>{
+  //   let newPeople = oldPeople.filter((person) => person.id !== id)
+  //   return newPeople
+  // }) Yukarıda removeItrm içerisine bunu girseydik fonksiyonel bir yapı oluştururduk.
   return (
   <>
   {people.map((person) => {
