@@ -5,14 +5,14 @@ import React, { useState, useEffect } from 'react'
 const UseEffectCleanup = () => {
   const [size,setSize]= useState(window.innerWidth)
   const checkSize = () =>{
-    setSize(window.innerWidth)
+    setSize(window.innerWidth) //check size'da window.innerWidth çalıltırsn
   }
   useEffect(() =>{
     console.log("useeffect")
-    window.addEventListener("resize", checkSize)
+    window.addEventListener("resize", checkSize) //window her resize olduğunda checksize'ı çalıştır ve her değişiklikte effect hooku çalışır
   // return () => {
   //   console.log("cleanup")
-  //   window.removeEventListener("resize",checkSize)
+  //   window.removeEventListener("resize",checkSize) // iki callback arasında temizleme işlemi yapıldı
   // }
   },[])
    console.log("render")
