@@ -4,8 +4,8 @@ const MultipleReturns = () => {
   const [isLoading,setIsLoading] = useState(true)
   const [isError,setIsError] = useState(false)
   const [user,setUser] = useState("default user")
-
-  useEffect(() =>{
+// belirlediğimiz durumları state'ler olarak tuttuk
+  useEffect(() =>{ // fetch çağrısı yaparken koşul ifadelerini effect hook'unun içinde oluşturduk
     fetch(url)
     .then((res) => {
 if(res.status >= 200 && res.status <= 299){
@@ -23,7 +23,7 @@ if(res.status >= 200 && res.status <= 299){
     })
     .catch((err)=> console.log(err))
   },[])
- if(isLoading){
+ if(isLoading){ //yukarıdaki state durumlarına göre return koşullarını ekledik
   return (
   <div>
     <h1>Loading...</h1>
