@@ -23,14 +23,14 @@ if(res.status >= 200 && res.status <= 299){
     })
     .catch((err)=> console.log(err))
   },[])
- if(isLoading){ //yukarıdaki state durumlarına göre return koşullarını ekledik
+ if(isLoading){ //yukarıdaki state durumlarına göre return koşullarını ekledik is Loading true ise Loading dönsün
   return (
   <div>
     <h1>Loading...</h1>
     </div>
  )
 }
- if(isError){
+ if(isError){ //isError true ise Error dönsün
   return (
   <div>
     <h1>Error...</h1>
