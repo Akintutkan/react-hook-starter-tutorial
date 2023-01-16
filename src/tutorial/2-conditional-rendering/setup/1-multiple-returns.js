@@ -8,20 +8,20 @@ const MultipleReturns = () => {
   useEffect(() =>{ // fetch çağrısı yaparken koşul ifadelerini effect hook'unun içinde oluşturduk
     fetch(url)
     .then((res) => {
-if(res.status >= 200 && res.status <= 299){
-  return res.json()
+if(res.status >= 200 && res.status <= 299){ // fetchteki hatalar genelde status hataları olduğu için //*2. ayarlama 
+  return res.json() //eğer bu status araşığındaysa json çeksin değilse
 }else{
-  setIsLoading(false)
-  setIsError(true)
+  setIsLoading(false) //loading false olsun //!eğer url hatalı olursa error yazar
+  setIsError(true) //error ise true olsun error göndersin 
   throw new Error(res.statusText)
 }
     })
-    .then((user)=> {
-      const {login} = user
-      setUser(login)
-      setIsLoading(false)
+    .then((user)=> { // dataya erişim için 2. then'i kullandık //*1 ayarlama 
+      const {login} = user //user nesnesinden login'i aldık login değeri nesnede quincy larson 
+      setUser(login) //  burada user'ı setuser ile quincy larson  geldi.
+      setIsLoading(false) // loading o zaman false olsun loading değeri gelmesin.
     })
-    .catch((err)=> console.log(err))
+    .catch((err)=> console.log(err)) // catch ile hatayı yakalayıp console yazdırdık.
   },[])
  if(isLoading){ //yukarıdaki state durumlarına göre return koşullarını ekledik is Loading true ise Loading dönsün
   return (
