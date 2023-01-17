@@ -6,17 +6,17 @@ import React, { useState } from 'react';
 // value, onChange
 
 const ControlledInputs = () => {
-  const [name,setName] = useState("")
+  const[name,setName] = useState("")
   const[email,setEmail] = useState("")
   const[people,setPeople] = useState([])
   const handleSubmit = (e)=>{
     e.preventDefault()
     if(name && email){
       console.log("formu gönder")
-      const person = {id: new Date().getTime().toString(),name,email}
+      const person = {id: new Date().getTime().toString(),name,email} // benzersiz kay oluştutmuş olduk
       console.log(person)
-      setPeople((people)=>{
-        return [...people,person]
+      setPeople((people)=>{ //setpeople sayesinde
+        return [...people,person] // mevcut listenin içine yeni bir element ekliyoruz
       })
       setName("")
       setEmail("")
